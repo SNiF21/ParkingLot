@@ -5,6 +5,7 @@
     <persistence-unit name="default" transaction-type="JTA">
         <jta-data-source>jdbc/ParkingLotResource</jta-data-source>
         <class>com.parking.parkinglot.entities.User</class>
+        <class>com.parking.parkinglot.entities.UserGroup</class>
         <class>com.parking.parkinglot.entities.Car</class>
 
         <properties>

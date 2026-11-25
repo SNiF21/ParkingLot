@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'war'
+    id 'org.jetbrains.kotlin.jvm'
+    id "org.jetbrains.kotlin.plugin.jpa" version '2.4.21'
 }
 
 group 'com.parking'
@@ -15,8 +17,6 @@ ext {
 }
 
 java {
-    sourceCompatibility = '8'
-    targetCompatibility = '8'
 }
 
 tasks.withType(JavaCompile) {
@@ -29,8 +29,12 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
 test {
     useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
 }
